@@ -26,5 +26,6 @@
     " at Module._compile (node:internal/modules/cjs/loader:1101:14)                               ",
     "                                                                                             ",
     "We ran into this with https://github.com/sourcegraph/scip/pull/1                             "
-  ]
+  ],
+  "main": "./scip"
 }
