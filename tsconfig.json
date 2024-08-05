@@ -3,6 +3,7 @@
     "target": "es2016",
     "module": "commonjs",
     "rootDir": ".",
-    "strict": true
+    "strict": true,
+    "declaration": true
   }
 }

@@ -25,6 +25,13 @@ var scip;
         TextEncoding[TextEncoding["UTF8"] = 1] = "UTF8";
         TextEncoding[TextEncoding["UTF16"] = 2] = "UTF16";
     })(TextEncoding = scip.TextEncoding || (scip.TextEncoding = {}));
+    let PositionEncoding;
+    (function (PositionEncoding) {
+        PositionEncoding[PositionEncoding["UnspecifiedPositionEncoding"] = 0] = "UnspecifiedPositionEncoding";
+        PositionEncoding[PositionEncoding["UTF8CodeUnitOffsetFromLineStart"] = 1] = "UTF8CodeUnitOffsetFromLineStart";
+        PositionEncoding[PositionEncoding["UTF16CodeUnitOffsetFromLineStart"] = 2] = "UTF16CodeUnitOffsetFromLineStart";
+        PositionEncoding[PositionEncoding["UTF32CodeUnitOffsetFromLineStart"] = 3] = "UTF32CodeUnitOffsetFromLineStart";
+    })(PositionEncoding = scip.PositionEncoding || (scip.PositionEncoding = {}));
     let SymbolRole;
     (function (SymbolRole) {
         SymbolRole[SymbolRole["UnspecifiedSymbolRole"] = 0] = "UnspecifiedSymbolRole";
@@ -34,6 +41,7 @@ var scip;
         SymbolRole[SymbolRole["ReadAccess"] = 8] = "ReadAccess";
         SymbolRole[SymbolRole["Generated"] = 16] = "Generated";
         SymbolRole[SymbolRole["Test"] = 32] = "Test";
+        SymbolRole[SymbolRole["ForwardDefinition"] = 64] = "ForwardDefinition";
     })(SymbolRole = scip.SymbolRole || (scip.SymbolRole = {}));
     let SyntaxKind;
     (function (SyntaxKind) {
@@ -97,6 +105,7 @@ var scip;
     (function (Language) {
         Language[Language["UnspecifiedLanguage"] = 0] = "UnspecifiedLanguage";
         Language[Language["ABAP"] = 60] = "ABAP";
+        Language[Language["Apex"] = 96] = "Apex";
         Language[Language["APL"] = 49] = "APL";
         Language[Language["Ada"] = 39] = "Ada";
         Language[Language["Agda"] = 45] = "Agda";
@@ -114,6 +123,7 @@ var scip;
         Language[Language["Coffeescript"] = 21] = "Coffeescript";
         Language[Language["CommonLisp"] = 9] = "CommonLisp";
         Language[Language["Coq"] = 47] = "Coq";
+        Language[Language["CUDA"] = 97] = "CUDA";
         Language[Language["Dart"] = 3] = "Dart";
         Language[Language["Delphi"] = 57] = "Delphi";
         Language[Language["Diff"] = 88] = "Diff";
@@ -129,6 +139,7 @@ var scip;
         Language[Language["Git_Config"] = 89] = "Git_Config";
         Language[Language["Git_Rebase"] = 92] = "Git_Rebase";
         Language[Language["Go"] = 33] = "Go";
+        Language[Language["GraphQL"] = 98] = "GraphQL";
         Language[Language["Groovy"] = 7] = "Groovy";
         Language[Language["HTML"] = 30] = "HTML";
         Language[Language["Hack"] = 20] = "Hack";
@@ -143,28 +154,34 @@ var scip;
         Language[Language["JavaScriptReact"] = 93] = "JavaScriptReact";
         Language[Language["Jsonnet"] = 76] = "Jsonnet";
         Language[Language["Julia"] = 55] = "Julia";
+        Language[Language["Justfile"] = 109] = "Justfile";
         Language[Language["Kotlin"] = 4] = "Kotlin";
         Language[Language["LaTeX"] = 83] = "LaTeX";
         Language[Language["Lean"] = 48] = "Lean";
         Language[Language["Less"] = 27] = "Less";
         Language[Language["Lua"] = 12] = "Lua";
+        Language[Language["Luau"] = 108] = "Luau";
         Language[Language["Makefile"] = 79] = "Makefile";
         Language[Language["Markdown"] = 84] = "Markdown";
         Language[Language["Matlab"] = 52] = "Matlab";
+        Language[Language["Nickel"] = 110] = "Nickel";
         Language[Language["Nix"] = 77] = "Nix";
         Language[Language["OCaml"] = 41] = "OCaml";
         Language[Language["Objective_C"] = 36] = "Objective_C";
         Language[Language["Objective_CPP"] = 37] = "Objective_CPP";
+        Language[Language["Pascal"] = 99] = "Pascal";
         Language[Language["PHP"] = 19] = "PHP";
         Language[Language["PLSQL"] = 70] = "PLSQL";
         Language[Language["Perl"] = 13] = "Perl";
         Language[Language["PowerShell"] = 67] = "PowerShell";
         Language[Language["Prolog"] = 71] = "Prolog";
+        Language[Language["Protobuf"] = 100] = "Protobuf";
         Language[Language["Python"] = 15] = "Python";
         Language[Language["R"] = 54] = "R";
         Language[Language["Racket"] = 11] = "Racket";
         Language[Language["Raku"] = 14] = "Raku";
         Language[Language["Razor"] = 62] = "Razor";
+        Language[Language["Repro"] = 102] = "Repro";
         Language[Language["ReST"] = 85] = "ReST";
         Language[Language["Ruby"] = 16] = "Ruby";
         Language[Language["Rust"] = 40] = "Rust";
@@ -177,11 +194,18 @@ var scip;
         Language[Language["Scheme"] = 10] = "Scheme";
         Language[Language["ShellScript"] = 64] = "ShellScript";
         Language[Language["Skylark"] = 78] = "Skylark";
+        Language[Language["Slang"] = 107] = "Slang";
+        Language[Language["Solidity"] = 95] = "Solidity";
+        Language[Language["Svelte"] = 106] = "Svelte";
         Language[Language["Swift"] = 2] = "Swift";
+        Language[Language["Tcl"] = 101] = "Tcl";
         Language[Language["TOML"] = 73] = "TOML";
         Language[Language["TeX"] = 82] = "TeX";
+        Language[Language["Thrift"] = 103] = "Thrift";
         Language[Language["TypeScript"] = 23] = "TypeScript";
         Language[Language["TypeScriptReact"] = 94] = "TypeScriptReact";
+        Language[Language["Verilog"] = 104] = "Verilog";
+        Language[Language["VHDL"] = 105] = "VHDL";
         Language[Language["VisualBasic"] = 63] = "VisualBasic";
         Language[Language["Vue"] = 25] = "Vue";
         Language[Language["Wolfram"] = 53] = "Wolfram";
@@ -540,6 +564,9 @@ var scip;
                 if ("text" in data && data.text != undefined) {
                     this.text = data.text;
                 }
+                if ("position_encoding" in data && data.position_encoding != undefined) {
+                    this.position_encoding = data.position_encoding;
+                }
             }
         }
         get language() {
@@ -572,6 +599,12 @@ var scip;
         set text(value) {
             pb_1.Message.setField(this, 5, value);
         }
+        get position_encoding() {
+            return pb_1.Message.getFieldWithDefault(this, 6, PositionEncoding.UnspecifiedPositionEncoding);
+        }
+        set position_encoding(value) {
+            pb_1.Message.setField(this, 6, value);
+        }
         static fromObject(data) {
             const message = new Document({});
             if (data.language != null) {
@@ -588,6 +621,9 @@ var scip;
             }
             if (data.text != null) {
                 message.text = data.text;
+            }
+            if (data.position_encoding != null) {
+                message.position_encoding = data.position_encoding;
             }
             return message;
         }
@@ -608,6 +644,9 @@ var scip;
             if (this.text != null) {
                 data.text = this.text;
             }
+            if (this.position_encoding != null) {
+                data.position_encoding = this.position_encoding;
+            }
             return data;
         }
         serialize(w) {
@@ -622,6 +661,8 @@ var scip;
                 writer.writeRepeatedMessage(3, this.symbols, (item) => item.serialize(writer));
             if (this.text.length)
                 writer.writeString(5, this.text);
+            if (this.position_encoding != PositionEncoding.UnspecifiedPositionEncoding)
+                writer.writeEnum(6, this.position_encoding);
             if (!w)
                 return writer.getResultBuffer();
         }
@@ -645,6 +686,9 @@ var scip;
                         break;
                     case 5:
                         message.text = reader.readString();
+                        break;
+                    case 6:
+                        message.position_encoding = reader.readEnum();
                         break;
                     default: reader.skipField();
                 }
@@ -1171,6 +1215,8 @@ var scip;
         let Kind;
         (function (Kind) {
             Kind[Kind["UnspecifiedKind"] = 0] = "UnspecifiedKind";
+            Kind[Kind["AbstractMethod"] = 66] = "AbstractMethod";
+            Kind[Kind["Accessor"] = 72] = "Accessor";
             Kind[Kind["Array"] = 1] = "Array";
             Kind[Kind["Assertion"] = 2] = "Assertion";
             Kind[Kind["AssociatedType"] = 3] = "AssociatedType";
@@ -1180,9 +1226,12 @@ var scip;
             Kind[Kind["Class"] = 7] = "Class";
             Kind[Kind["Constant"] = 8] = "Constant";
             Kind[Kind["Constructor"] = 9] = "Constructor";
+            Kind[Kind["Contract"] = 62] = "Contract";
             Kind[Kind["DataFamily"] = 10] = "DataFamily";
+            Kind[Kind["Delegate"] = 73] = "Delegate";
             Kind[Kind["Enum"] = 11] = "Enum";
             Kind[Kind["EnumMember"] = 12] = "EnumMember";
+            Kind[Kind["Error"] = 63] = "Error";
             Kind[Kind["Event"] = 13] = "Event";
             Kind[Kind["Fact"] = 14] = "Fact";
             Kind[Kind["Field"] = 15] = "Field";
@@ -1195,10 +1244,14 @@ var scip;
             Kind[Kind["Key"] = 22] = "Key";
             Kind[Kind["Lang"] = 23] = "Lang";
             Kind[Kind["Lemma"] = 24] = "Lemma";
+            Kind[Kind["Library"] = 64] = "Library";
             Kind[Kind["Macro"] = 25] = "Macro";
             Kind[Kind["Method"] = 26] = "Method";
+            Kind[Kind["MethodAlias"] = 74] = "MethodAlias";
             Kind[Kind["MethodReceiver"] = 27] = "MethodReceiver";
+            Kind[Kind["MethodSpecification"] = 67] = "MethodSpecification";
             Kind[Kind["Message"] = 28] = "Message";
+            Kind[Kind["Modifier"] = 65] = "Modifier";
             Kind[Kind["Module"] = 29] = "Module";
             Kind[Kind["Namespace"] = 30] = "Namespace";
             Kind[Kind["Null"] = 31] = "Null";
@@ -1213,20 +1266,32 @@ var scip;
             Kind[Kind["Predicate"] = 40] = "Predicate";
             Kind[Kind["Property"] = 41] = "Property";
             Kind[Kind["Protocol"] = 42] = "Protocol";
+            Kind[Kind["ProtocolMethod"] = 68] = "ProtocolMethod";
+            Kind[Kind["PureVirtualMethod"] = 69] = "PureVirtualMethod";
             Kind[Kind["Quasiquoter"] = 43] = "Quasiquoter";
             Kind[Kind["SelfParameter"] = 44] = "SelfParameter";
             Kind[Kind["Setter"] = 45] = "Setter";
             Kind[Kind["Signature"] = 46] = "Signature";
-            Kind[Kind["Subscript"] = 47] = "Subscript";
+            Kind[Kind["SingletonClass"] = 75] = "SingletonClass";
+            Kind[Kind["SingletonMethod"] = 76] = "SingletonMethod";
+            Kind[Kind["StaticDataMember"] = 77] = "StaticDataMember";
+            Kind[Kind["StaticEvent"] = 78] = "StaticEvent";
+            Kind[Kind["StaticField"] = 79] = "StaticField";
+            Kind[Kind["StaticMethod"] = 80] = "StaticMethod";
+            Kind[Kind["StaticProperty"] = 81] = "StaticProperty";
+            Kind[Kind["StaticVariable"] = 82] = "StaticVariable";
             Kind[Kind["String"] = 48] = "String";
             Kind[Kind["Struct"] = 49] = "Struct";
+            Kind[Kind["Subscript"] = 47] = "Subscript";
             Kind[Kind["Tactic"] = 50] = "Tactic";
             Kind[Kind["Theorem"] = 51] = "Theorem";
             Kind[Kind["ThisParameter"] = 52] = "ThisParameter";
             Kind[Kind["Trait"] = 53] = "Trait";
+            Kind[Kind["TraitMethod"] = 70] = "TraitMethod";
             Kind[Kind["Type"] = 54] = "Type";
             Kind[Kind["TypeAlias"] = 55] = "TypeAlias";
             Kind[Kind["TypeClass"] = 56] = "TypeClass";
+            Kind[Kind["TypeClassMethod"] = 71] = "TypeClassMethod";
             Kind[Kind["TypeFamily"] = 57] = "TypeFamily";
             Kind[Kind["TypeParameter"] = 58] = "TypeParameter";
             Kind[Kind["Union"] = 59] = "Union";
