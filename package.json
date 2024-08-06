@@ -9,15 +9,17 @@
   "private": false,
   "scripts": {
     "compile:fetch": "curl https://raw.githubusercontent.com/sourcegraph/scip/main/scip.proto > scip.proto",
-    "compile:js": "pbjs -t static-module -o scip.js -w commonjs scip.proto",
-    "compile:ts": "pbts -o scip.d.ts scip.js",
-    "compile": "npm run compile:fetch && npm run compile:js && npm run compile:ts"
+    "compile:ts": "buf generate",
+    "compile:js": "tsc",
+    "compile": "npm run compile:fetch && npm run compile:ts && npm run compile:js"
   },
-  "main": "./scip",
+  "main": "./index",
   "dependencies": {
-    "protobufjs": "^7.3.2"
+    "@bufbuild/protobuf": "^2.0.0"
   },
   "devDependencies": {
-    "protobufjs-cli": "^1.1.2"
+    "@bufbuild/buf": "^1.36.0",
+    "@bufbuild/protoc-gen-es": "^2.0.0",
+    "typescript": "^5.5.4"
   }
 }
